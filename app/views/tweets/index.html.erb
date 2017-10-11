@@ -1,2 +1,7 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<h1>Welcome to Braidy's Twitter clone!</h1>
+
+  <% if current_user %>
+    <p>conditional is working, because you have to be logged in to see this</p>
+  <% else %>
+    <p> You must be logged in to see this page.</p>
+  <% end %>
