@@ -1,7 +1,14 @@
 <h1>Welcome to Braidy's Twitter clone!</h1>
 
   <% if current_user %>
-    <p>conditional is working, because you have to be logged in to see this</p>
+    <%= link_to "Send out a Tweet", new_tweet_path %>
+
+   <br>
+    <% @tweets.each do |tweet| %>
+      <%= tweet.body %>
+      <br>
+      <%= tweet.user_id %>
+    <% end %>
   <% else %>
     <p> You must be logged in to see this page.</p>
   <% end %>
