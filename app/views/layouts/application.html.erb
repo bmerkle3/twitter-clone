@@ -11,6 +11,9 @@
   <body>
     <nav class="">
         <ul>
+          <li>
+            <%= link_to "Home", root_path %>
+          </li>
           <% if current_user %>
             <li>
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
