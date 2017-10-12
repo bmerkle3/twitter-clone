@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :user
-  resources :post
+  root 'tweets#index'
+
+  devise_for :users
+  resources :tweets
+  resources :friendships
+ 
 end
