@@ -9,6 +9,7 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
   def create
@@ -16,13 +17,15 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweet_path(@tweet)
     else
+      @errors = @tweet.errors.full_messages
       flash[:error] = @tweet.errors.full_messages
-      redirect_to new_tweet_path
+      p params
+      render :new
     end
   end
 
   private
   def permit_tweet
-    params.require(:tweet).permit(:body, :user_id)
+    params.require(:tweet).permit(:body, :user)
   end
 end
