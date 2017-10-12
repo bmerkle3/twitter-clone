@@ -1,16 +1,20 @@
-<h1>Welcome to Braidy's Twitter clone!</h1>
 
+<h1>Braidy's Twitter clone</h1>
   
 
   <% if current_user %>
-    <%= link_to "Send out a Tweet", new_tweet_path %>
+  <h2>Welcome, <%= current_user.email %>!</h2>
+  <%= link_to "Send out a Tweet", new_tweet_path %>
+  <br>
+  <% @tweets.each do |tweet| %>
+    <%= tweet.body %>
+    <br>
+    <%= tweet.user %>
 
-   <br>
-    <% @tweets.each do |tweet| %>
-      <%= tweet.body %>
-      <br>
-      <%= tweet.user_id %>
-    <% end %>
+
+ 
+
+  <% end %>
   <% else %>
     <p> You must be logged in to see this page.</p>
   <% end %>
